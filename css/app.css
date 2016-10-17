@@ -1,0 +1,28 @@
+body {
+	font-family: 'Raleway', sans-serif;
+}
+
+.container {
+	width: 70vw;
+	margin: auto;
+	background-color: #F564A9;
+}
+
+.hidden {
+	display: none;
+}
+
+a {
+	text-decoration: none;
+	color: #333;
+}
+
+input[type=radio] {
+  display: none;   
+}
+
+label {
+	cursor: pointer;
+	height: 2rem;
+
+}
