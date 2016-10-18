@@ -1,6 +1,6 @@
 $(document).ready( function() {
 
-	var channels = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas"];
+	var channels = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas", "brunofin"];
 
 	for (channel of channels) {
 		twitchQuery(channel);
@@ -11,16 +11,19 @@ $(document).ready( function() {
 		$.ajax({
 			dataType: "json",
 			cache: false,
-			url: 'https://wind-bow.hyperdev.space/twitch-api/streams/' + channel,
+			url: 'https://wind-bow.hyperdev.space/twitch-api/streams/' + channel + '?callback=?',
 			success: function(response) {
 
 				var status = '';
 				var description = '';
 				var link = "https://www.twitch.tv/" + channel;
 
-				if (response.stream == null) {
+				if (response.status == 404) {
 					status = "offline";
-					description = "offline";
+					description = "Channel does not exist."
+				} else if (response.stream == null) {
+					status = "offline";
+					description = "Offline";
 				} else {
 					status = "online";
 					description = response.stream.channel.game + ": " + response.stream.channel.status;

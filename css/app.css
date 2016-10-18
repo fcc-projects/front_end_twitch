@@ -1,11 +1,12 @@
 body {
 	font-family: 'Raleway', sans-serif;
+	background-color: #111;
 }
 
 .container {
 	width: 70vw;
 	margin: auto;
-	background-color: #F564A9;
+	background-color: #fff;
 }
 
 .hidden {
@@ -24,5 +25,100 @@ input[type=radio] {
 label {
 	cursor: pointer;
 	height: 2rem;
+	padding: 4rem;
+	line-height: 3rem;
+}
 
+label:before {
+
+  	border: 5px solid #ccc;
+	position: relative;
+	top: 0.5rem;
+	margin-right: 0.7rem;
+  	content: "";
+  	display: inline-block;
+ 
+  	width: 1rem;
+  	height: 1rem;
+
+  	border-radius: 50%;
+	transition: background 0.25s linear;
+
+  	
+}
+
+
+
+input[type=radio]:checked + label.all:before {
+	border: 5px solid #ccc;
+	background: #ccc;
+    font-size: 1rem;
+    text-align: center;
+    line-height: 3rem;
+}
+
+input[type=radio]:checked + label.online:before {
+	border: 5px solid #96ffa4;
+	background: #96ffa4;
+    font-size: 1rem;
+    text-align: center;
+    line-height: 3rem;
+}
+
+input[type=radio]:checked + label.offline:before {
+	border: 5px solid #ff8c8c;
+	background: #ff8c8c;
+    font-size: 1rem;
+    text-align: center;
+    line-height: 3rem;
+}
+
+label:hover {
+	font-weight: bolder;
+}
+
+.selector-container {
+	height: 3rem;
+	border-bottom: 1px solid;
+	margin: 1 auto;
+	text-align: center;
+}
+
+.channel-name {
+	height: 2rem;
+	width: 7rem;
+	padding: 2rem;
+	display: inline-block;
+}
+
+.channel-stream {
+	height: 2rem;
+	min-width: 16rem;
+	display: inline-block;
+	overflow-wrap: break-word;
+	font-style: italic;
+	color: #888;
+}
+
+a:hover .channel-name {
+	font-weight: bolder;
+	color: #333;
+}
+
+a:hover>.online:before {
+	content: "";
+   	display: inline-block;
+   	width: 0.5rem;
+   	height: 6rem;
+   	float: left;
+   	background-color: #96ffa4;
+}
+
+a:hover>.offline:before {
+	content: "";
+   	display: inline-block;
+   	width: 0.5rem;
+   	height: 6rem;
+   	float: left;
+   	background-color: #ff8c8c;
 }
